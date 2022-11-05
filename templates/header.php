@@ -8,7 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
   <body>
-    
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary-plantilla p-0">
     <div class="container-fluid ">
         <a class="navbar-brand" href="#">MACAK</a>
@@ -18,18 +19,22 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ">
                 <li class="nav-item ">
-                    <a class="item nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="item nav-link listar" aria-current="page" href="src/vistas/home.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="item nav-link" href="#">Fundaciones Asociadas</a>
+                    <a class="item nav-link listar" href="src/vistas/login.php">Fundaciones Asociadas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="item nav-link" href="#">Adopción y Apadrinamiento</a>
+                    <a class="item nav-link listar" href="src/vistas/adopcion_apadrinamiento.php">Adopción y Apadrinamiento</a>
                 </li>
                 <li class="nav-item">
-                    <a class="item nav-link disabled">Donaciones</a>
+                    <a class="item nav-link listar"  href="src/vistas/donaciones.php">Donaciones</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+<div id="contenido">
+
+
+
