@@ -1,17 +1,19 @@
 <style>
-.carta_general {
-
+.carta {
+    background-repeat: no-repeat;
     background-color: rgb(255, 255, 255, 0.6);
     padding: 10px;
     height: 500px;
     color: white;
     border-radius: 15px;
     padding: 80px;
+    display: flex;
+    justify-content: center;
 
 }
 </style>
 <div class="container-fluid  justify-content-center d-flex mt-5">
-    <div class="card carta_general  bg-primary-plantilla">
+    <div class="card carta  bg-primary-plantilla">
         <div class=" justify-content-center d-flex">
 
             <!-- <img class="mt-5" src="public/img/logo.png" alt="" width="400"> -->
@@ -21,7 +23,7 @@
                 <div class="row text-center">
                     <h2>MACAK</h2>
                     <br>
-                    <h6>Construyendo Familias</h6>
+                    <h6>Registro de Usuarios </h6>
                 </div>
                 <div class="row">
                     <label for="">Usuario</label>
@@ -39,45 +41,20 @@
                     <button type="submit" class="btn  bg-secondary-plantilla"
                         style="color: white !important;">Ingresar</button>
                 </div>
-                <div class="d-flex justify-content-center  text-center   ">
-                   
-                    <div class="row ">
-                        <nav class="nav">
-                            <ul class="navbar-nav ">
-                                <li class="nav-item ">
-                                    <a class="item nav-link listar " id="registro_a"
-                                        href="src/vistas/register.php">Olvidaste tu contraseña?</a>
-                                </li>
-                                <li class="nav-item ">
-                                    <a class="item nav-link listar " id="registro"
-                                        href="src/vistas/register.php">Registrate Aquí</a>
-                                </li>
-                            </ul>
-                        </nav>
-
+                <div class="d-flex justify-content-center row text-center   ">
+                    <div class="row">
+                        <span>
+                            <a href="" style="color: white !important;">Olvidaste tu contraseña?</a>
+                        </span>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <span>
+                            <a href="" style="color: white !important;">Registrate Aquí</a>
+                        </span>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<script>
-$('#registro').on('click', function(e) {
-    e.preventDefault();
-    var aID = 'src/vistas/register.php';
-    $.post(aID, function(data) {
-        if (aID != "#") {
-            $("#contenido").html(data);
-        }
-    });
-})
-$('#olvido_contraseña').on('click', function(e) {
-    e.preventDefault();
-    var aID = 'src/vistas/register.php';
-    $.post(aID, function(data) {
-        if (aID != "#") {
-            $("#contenido").html(data);
-        }
-    });
-})
-</script>

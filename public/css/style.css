@@ -54,37 +54,13 @@ body {
     background-color: rgba(var(--bs-background-item))!important;
 }
 
-.carta {
+.carta_general {
     box-shadow: 0 4px 21px -12px rgba(66, 47, 47, 0.66);
     flex-wrap: wrap;
-    display: flex;
+    display: absolute;
     border-color: none;
     border-radius: 10px;
     margin: 0 0 2rem 0;
-    overflow: hidden;
-    position: relative;
-    color: #31303e;
-}
-
-.carta a {
-    color: inherit;
-}
-
-.carta h1,
-.carta .h1 {
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    line-height: 1.2;
-}
-
-.carta:before {
-    content: "";
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    /* background-image: linear-gradient(-75deg, rgba(255, 194, 147, 73), transparent 25%); */
-    opacity: 1;
-    border-radius: 10px;
+    color: #31303e;
 }
