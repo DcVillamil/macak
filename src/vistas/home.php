@@ -88,27 +88,29 @@ $_SESSION['title']='MACAK| Home ';
 </div>
 
 <section>
-    <div class="row d-flex justify-content-center">
-        <div class=" col-lg-3 m-2">
-            <div class="row"><img src="public/img/logo.png" style="width: 150px;" alt="" srcset=""></div>
-            <div class="row">
-                <h4>Fundación ...</h4>
+    <div class="row ">
+        <div class="col-lg-12 col-sm-6 col-md-6 d-flex justify-content-center">
+            <div class=" col-lg-3 col-sm-12 col-md-12 m-2">
+                <div class="row"><img src="public/img/logo.png" style="width: 150px;" alt="" srcset=""></div>
+                <div class="row">
+                    <h4>Fundación ...</h4>
+                </div>
+                <div class="row"> Descripción</div>
             </div>
-            <div class="row"> Descripción</div>
-        </div>
-        <div class="col-lg-3 m-2">
-            <div class="row"><img src="public/img/logo.png" style="width: 150px;" alt="" srcset=""></div>
-            <div class="row">
-                <h4>Fundación ...</h4>
+            <div class="col-lg-3 col-sm-12 col-md-12 m-2">
+                <div class="row"><img src="public/img/logo.png" style="width: 150px;" alt="" srcset=""></div>
+                <div class="row">
+                    <h4>Fundación ...</h4>
+                </div>
+                <div class="row"> Descripción</div>
             </div>
-            <div class="row"> Descripción</div>
-        </div>
-        <div class="col-lg-3 m-2">
-            <div class="row"><img src="public/img/logo.png" style="width: 150px;" alt="" srcset=""></div>
-            <div class="row">
-                <h4>Fundación ...</h4>
+            <div class="col-lg-3 col-sm-12 col-md-12 m-2">
+                <div class="row"><img src="public/img/logo.png" style="width: 150px;" alt="" srcset=""></div>
+                <div class="row">
+                    <h4>Fundación ...</h4>
+                </div>
+                <div class="row"> Descripción</div>
             </div>
-            <div class="row"> Descripción</div>
         </div>
 
         <!-- <div class="carta col-lg-4 m-2 " style="width: 20rem;">
