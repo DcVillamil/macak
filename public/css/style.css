@@ -68,3 +68,7 @@ body {
 .fundaciones {
     color: black;
 }
+
+.barra_navegacion {
+    background-color: rgba(var(--bs-back-primary)) !important;
+}
