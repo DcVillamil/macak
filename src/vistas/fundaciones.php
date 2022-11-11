@@ -11,7 +11,7 @@
         <div class="titulo">FUNDACIONES ASOCIADAS A MACAK</div>
         <hr>
         <div>
-            <div class="card carta_fundaciones" style="width: 18rem;">
+            <div class="card carta_fundaciones" style="width: 18rem; position:relative; left:30px;">
             <img src="public/img/perritos1.jpg" class="card-img-top" alt="..." style="border-radius: 100%;
             width: 200px;
             height: 150px;
@@ -26,3 +26,8 @@
         </div>
         </div>
     </section>
+
+    <script src="public/js/fundaciones.js"></script>
+    <script>
+        $(document).ready(fundaciones);
+    </script>
