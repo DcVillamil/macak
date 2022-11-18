@@ -5,25 +5,40 @@ require_once "modeloAbstractoDB.php";
 class fundaciones extends ModeloAbstractoDB
 {
 
-    private $IdCliente;
-    private $NombreCliente;
-    private $Email;
+    private $IdFundacion;
+    private $Nit;
+    private $Nombre;
+    private $Descricpcion;
     private $Direccion;
     private $Telefono;
-    private $IdEstado;
-    private $IdCiudad;
+    private $NumeroCuenta;
+    private $TipoCuenta;
 
     public function __construct()
     {
 
     }
+
+    public function lista()
+    {
+        $this->query = "
+			SELECT id, nit, nombre, descripcion, direccion, telefono,
+            numero_cuenta, tipo_cuenta
+			FROM fundaciones
+            ORDER BY id
+			";
+
+        $this->obtener_resultados_query();
+        return $this->rows;
+    }
+
     public function consultar($id = '')
     {
         if ($id != ''):
             $this->query = "
-			    SELECT IdCliente,NombreCliente,Email,Direccion,Telefono,IdEstado,IdCiudad
-			    FROM clientes
-	            WHERE IdCliente = '$id'";
+			    SELECT id,nit,nombre,descripcion,direccion,telefono,numero_cuenta,tipo_cuenta
+			    FROM fundaciones
+	            WHERE IdFundacion = '$id'";
             $this->obtener_resultados_query();
         endif;
         if (count($this->rows) == 1):
@@ -40,15 +55,18 @@ class fundaciones extends ModeloAbstractoDB
             foreach ($datos as $campo => $valor):
                 $$campo = $valor;
             endforeach;
-            $NombreCliente = utf8_decode($NombreCliente);
+            $Nit = utf8_decode($Nit);
+            $Nombre = utf8_decode($Nombre);
+            $Descripcion = utf8_decode($Descripcion);
             $Direccion = utf8_decode($Direccion);
-            $Email = utf8_decode($Email);
             $Telefono = utf8_decode($Telefono);
+            $NumeroCuenta = utf8_decode($NumeroCuenta);
+            $TipoCuenta = utf8_decode($TipoCuenta);
             $this->query = "
-						INSERT INTO clientes
-						(IdCliente,NombreCliente,Email,Direccion,Telefono,IdEstado,IdCiudad)
+						INSERT INTO fundaciones
+						(id,nit,nombre,descripcion,direccion,telefono,numero_cuenta,tipo_cuenta)
 						VALUES
-						('$IdCliente', '$NombreCliente', '$Email', '$Direccion', '$Telefono', '$IdEstado', '$IdCiudad')
+						('$Nit', '$Nombre', '$Descripcion', '$Direccion', '$Telefono', '$NumeroCuenta', '$TipoCuenta')
 						";
             $resultado = $this->ejecutar_query_simple();
             return $resultado;
@@ -61,14 +79,15 @@ class fundaciones extends ModeloAbstractoDB
         endforeach;
       
         $this->query = "
-			UPDATE clientes
-			SET NombreCliente = '$NombreCliente',
-			Email = '$Email',
-			Direccion = '$Direccion',
-			Telefono = '$Telefono',
-			IdEstado = '$IdEstado',
-			IdCiudad = '$IdCiudad'
-			WHERE IdCliente = '$IdCliente'
+			UPDATE fundaciones
+			SET nit = '$Nit',
+            nombre = '$Nombre',
+			descripcion = '$Descripcion',
+			direccion = '$Direccion',
+			telefono = '$Telefono',
+			numero_cuenta = '$NumeroCuenta',
+			tipo_cuenta = '$TipoCuenta'
+			WHERE IdFundacion = '$IdFundacion'
 			";
         $resultado = $this->ejecutar_query_simple();
         return $resultado;
@@ -80,101 +99,74 @@ class fundaciones extends ModeloAbstractoDB
 
     }
 
-    public function lista()
-    {
-        $this->query = "
-		SELECT IdCliente,NombreCliente,Email,Direccion,Telefono,e.Estado,c.NombreCiudad
-		FROM clientes AS cl INNER JOIN estados AS e
-        ON(cl.IdEstado = e.IdEstado)
-        INNER JOIN ciudad AS c
-        ON(cl.IdCiudad = c.IdCiudad)
-        ORDER BY IdCliente";
-        $this->obtener_resultados_query();
-        return $this->rows;
 
-    }
 
-    public function lista_estados()
-    {
-        $this->query = "
-		SELECT IdEstado,Estado
-		FROM estados";
-        $this->obtener_resultados_query();
-        return $this->rows;
-    }
+    
 
-    public function lista_ciudad()
+    /**
+     * Get the value of IdFundacion
+     */ 
+    public function getIdFundacion()
     {
-        $this->query = "
-		SELECT IdPais,IdCiudad,NombreCiudad
-		FROM ciudad";
-        $this->obtener_resultados_query();
-        return $this->rows;
+        return $this->IdFundacion;
     }
 
     /**
-     * Get the value of IdCliente
-     */
-    public function getIdCliente()
-    {
-        return $this->IdCliente;
-    }
-
-    /**
-     * Set the value of IdCliente
+     * Set the value of IdFundacion
      *
      * @return  self
-     */
-    public function setIdCliente($IdCliente)
+     */ 
+    public function setIdFundacion($IdFundacion)
     {
-        $this->IdCliente = $IdCliente;
+        $this->IdFundacion = $IdFundacion;
 
         return $this;
     }
 
     /**
-     * Get the value of NombreCliente
-     */
-    public function getNombreCliente()
+     * Get the value of Nit
+     */ 
+    public function getNitFundacion()
     {
-        return $this->NombreCliente;
+        return $this->Nit;
     }
 
     /**
-     * Set the value of NombreCliente
+     * Set the value of Nit
      *
      * @return  self
-     */
-    public function setNombreCliente($NombreCliente)
+     */ 
+    public function setNitFundacion($Nit)
     {
-        $this->NombreCliente = $NombreCliente;
+        $this->Nit = $Nit;
 
         return $this;
     }
 
+   
     /**
-     * Get the value of Email
-     */
-    public function getEmail()
+     * Get the value of Descricpcion
+     */ 
+    public function getDescricpcion()
     {
-        return $this->Email;
+        return $this->Descricpcion;
     }
 
     /**
-     * Set the value of Email
+     * Set the value of Descricpcion
      *
      * @return  self
-     */
-    public function setEmail($Email)
+     */ 
+    public function setDescricpcion($Descricpcion)
     {
-        $this->Email = $Email;
+        $this->Descricpcion = $Descricpcion;
 
         return $this;
     }
 
     /**
      * Get the value of Direccion
-     */
+     */ 
     public function getDireccion()
     {
         return $this->Direccion;
@@ -184,7 +176,7 @@ class fundaciones extends ModeloAbstractoDB
      * Set the value of Direccion
      *
      * @return  self
-     */
+     */ 
     public function setDireccion($Direccion)
     {
         $this->Direccion = $Direccion;
@@ -194,7 +186,7 @@ class fundaciones extends ModeloAbstractoDB
 
     /**
      * Get the value of Telefono
-     */
+     */ 
     public function getTelefono()
     {
         return $this->Telefono;
@@ -204,7 +196,7 @@ class fundaciones extends ModeloAbstractoDB
      * Set the value of Telefono
      *
      * @return  self
-     */
+     */ 
     public function setTelefono($Telefono)
     {
         $this->Telefono = $Telefono;
@@ -213,41 +205,61 @@ class fundaciones extends ModeloAbstractoDB
     }
 
     /**
-     * Get the value of IdEstado
-     */
-    public function getIdEstado()
+     * Get the value of NumeroCuenta
+     */ 
+    public function getNumeroCuenta()
     {
-        return $this->IdEstado;
+        return $this->NumeroCuenta;
     }
 
     /**
-     * Set the value of IdEstado
+     * Set the value of NumeroCuenta
      *
      * @return  self
-     */
-    public function setIdEstado($IdEstado)
+     */ 
+    public function setNumeroCuenta($NumeroCuenta)
     {
-        $this->IdEstado = $IdEstado;
+        $this->NumeroCuenta = $NumeroCuenta;
 
         return $this;
     }
 
     /**
-     * Get the value of IdCiudad
-     */
-    public function getIdCiudad()
+     * Get the value of TipoCuenta
+     */ 
+    public function getTipoCuenta()
     {
-        return $this->IdCiudad;
+        return $this->TipoCuenta;
     }
 
     /**
-     * Set the value of IdCiudad
+     * Set the value of TipoCuenta
      *
      * @return  self
-     */
-    public function setIdCiudad($IdCiudad)
+     */ 
+    public function setTipoCuenta($TipoCuenta)
     {
-        $this->IdCiudad = $IdCiudad;
+        $this->TipoCuenta = $TipoCuenta;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Nombre
+     */ 
+    public function getNombre()
+    {
+        return $this->Nombre;
+    }
+
+    /**
+     * Set the value of Nombre
+     *
+     * @return  self
+     */ 
+    public function setNombre($Nombre)
+    {
+        $this->Nombre = $Nombre;
 
         return $this;
     }
