@@ -12,11 +12,11 @@
         }
     </style>
 
-    <section>
+    <!-- <section>
         <div class="barra_navegacion">
 
         </div>
-    </section>
+    </section> -->
 
     <!-- Cartas de fundaciones -->
     <section class="adopcion">
